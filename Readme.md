@@ -8,8 +8,10 @@ A project to train a sales forecast model using three years of historical daily 
 
 * `models`: path to store trained models
 
-* `src`: source directory for model code as well as Python notebook
+* `notebooks`:
   * `main.ipynb`: notebook to perform data cleaning and initial data exploration
+
+* `src`: source directory for model code as well as Python notebook
   * `ml_core`: contains train and forecast code for corresponding ML models
   * `main.py`: CLI to call train and forecast methods
   
