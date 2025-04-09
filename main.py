@@ -46,7 +46,6 @@ def train(
 def forecast(
         model_type: str = typer.Option(..., help="Type of model. Possible values: (SARIMAX, PROPHET)"),
 ):
-    print("This is Forecast method")
     supported_models = ["PROPHET"]
     if model_type not in supported_models:
         print("Model type: ", model_type, "not yet supported. Please try with one of the following:", supported_models)
@@ -63,7 +62,7 @@ def forecast(
                                           forecast_horizon=30)
 
         # save the dataframe
-        print("Saving model to ", forecast_output_path)
+        print("Saving forecast to ", forecast_output_path)
         sales_forecast.to_pickle(forecast_output_path)
 
     return None

@@ -24,7 +24,9 @@ def prophet_train(data_path, model_output_path):
 
     # Use cross validation to evaluate all parameters
     for params in all_params:
-        m = Prophet(**params).fit(df)  # Fit model with given params
+        m = Prophet(**params)
+        m.add_country_holidays(country_name='FR')
+        m.fit(df)
         df_cv = cross_validation(m, cutoffs=cutoffs, horizon='30 days', parallel="processes")
         df_p = performance_metrics(df_cv, rolling_window=1)
         rmses.append(df_p['rmse'].values[0])
